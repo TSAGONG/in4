@@ -22,18 +22,29 @@ constructor() {
       url: `https://api.spotify.com/v1/search?q=${artist}&type=artist`,
     }).then((res) => {
 
+      //grabs the artist id from the data
       const id = res.data.artists.items[0].id;
 
     axios({
-        method: 'GET',
-        url: `https://api.spotify.com/v1/artists/${id}/top-tracks?country=US`,
+      method: 'GET',
+      url: `https://api.spotify.com/v1/artists/${id}/top-tracks?country=US`,
     }).then((response) => {
-        console.log(response.data);
+        //console.log(response.data);
+
+    axios({
+      method: 'GET',
+      url: `https://api.spotify.com/v1/artists/${id}/albums?album_type=album`,
+    }).then((resAlbum) => {
+        //console.log(resAlbum.data);
 
         this.setState({
 
+          //artist and image
           artistName: res.data.artists.items[0].name,
           image: res.data.artists.items[0].images[2].url,
+
+
+          //popular tracks and preview url
           track1: response.data.tracks[0].name,
           preview1: response.data.tracks[0].preview_url,
           track2: response.data.tracks[1].name,
@@ -44,9 +55,17 @@ constructor() {
           preview4: response.data.tracks[3].preview_url,
           track5: response.data.tracks[4].name,
           preview5: response.data.tracks[4].preview_url,
-        })
-      });
-    })
+
+          //album art
+          album1: resAlbum.data.items[0].images[1].url,
+          album2: resAlbum.data.items[1].images[1].url,
+          album3: resAlbum.data.items[2].images[1].url,
+          album4: resAlbum.data.items[3].images[1].url,
+          album4: resAlbum.data.items[4].images[1].url,
+        });
+    });
+    });
+    });
   }
 
 
@@ -62,11 +81,22 @@ constructor() {
         <ul className = 'artistinfo'>
           <li>{this.state.artistName}</li>
           <li><img src={this.state.image} /></li>
+        </ul>
+
+        <ul className = 'songPreview'>
           <li><a href={this.state.preview1}>{this.state.track1}</a></li>
           <li><a href={this.state.preview2}>{this.state.track2}</a></li>
           <li><a href={this.state.preview3}>{this.state.track3}</a></li>
           <li><a href={this.state.preview4}>{this.state.track4}</a></li>
           <li><a href={this.state.preview5}>{this.state.track5}</a></li>
+        </ul>
+
+        <ul className = 'album'>
+          <li><img src={this.state.album1} /></li>
+          <li><img src={this.state.album2} /></li>
+          <li><img src={this.state.album3} /></li>
+          <li><img src={this.state.album4} /></li>
+          <li><img src={this.state.album5} /></li>
         </ul>
       </div>
     );
