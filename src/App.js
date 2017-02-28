@@ -38,10 +38,10 @@ constructor() {
         //console.log(resAlbum.data);
         const albumId = resAlbum.data.items[0].id;
 
-    axios({
-      method: 'GET',
-      url: `https://api.spotify.com/v1/albums/${albumId}/tracks?`
-    }).then((resTracks) => {
+    //axios({
+     // method: 'GET',
+      //url: `https://api.spotify.com/v1/albums/${albumId}/tracks?`
+    //}).then((resTracks) => {
         //console.log(resTracks.data);
 
         this.setState({
@@ -81,12 +81,10 @@ constructor() {
           album4: resAlbum.data.items[3].images[1].url,
           album5: resAlbum.data.items[4].images[1].url,
         });
-    })
     });
     });
     });
   }
-
 
   render() {
     return (
@@ -97,17 +95,20 @@ constructor() {
         <Input
           getArtistInfo={this.getArtistInfo}
         />
-        <ul className = 'artistinfo'>
-          <li className= 'bg'><h2>{this.state.artistName}</h2></li>
-          <li><img src={this.state.image} /></li>
+
+        <ul>
+          <li><h2>{this.state.artistName}</h2></li>
+          <li><img className='artistimg' src={this.state.image} /></li>
         </ul>
 
-        <ul className = 'songPreview'>
+        <ul className = 'songPreview1'>
           <li><a href={this.state.preview1}>{this.state.track1}</a></li>
           <li><a href={this.state.preview2}>{this.state.track2}</a></li>
           <li><a href={this.state.preview3}>{this.state.track3}</a></li>
           <li><a href={this.state.preview4}>{this.state.track4}</a></li>
           <li><a href={this.state.preview5}>{this.state.track5}</a></li>
+         </ul>
+         <ul className = 'songPreview2'>
           <li><a href={this.state.preview6}>{this.state.track6}</a></li>
           <li><a href={this.state.preview7}>{this.state.track7}</a></li>
           <li><a href={this.state.preview8}>{this.state.track8}</a></li>
@@ -122,6 +123,7 @@ constructor() {
           <li><img src={this.state.album4} /></li>
           <li><img src={this.state.album5} /></li>
         </ul>
+
       </div>
     );
   }
