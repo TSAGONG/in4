@@ -7,14 +7,14 @@ class Input extends React.Component {
 
   render(){
     return(
-      <div id = 'input'>
+        <div id = 'input'>
           <input
+            className= 'search'
             type = 'text'
             ref={(input) => { this.artist = input; }}
             placeholder= 'Artist name'
           />
           <button
-            className="btn btn-primary"
             onClick={() => this.props.getArtistInfo(this.artist.value)}
           >Submit</button>
       </div>

@@ -36,6 +36,13 @@ constructor() {
       url: `https://api.spotify.com/v1/artists/${id}/albums?album_type=album`,
     }).then((resAlbum) => {
         //console.log(resAlbum.data);
+        const albumId = resAlbum.data.items[0].id;
+
+    axios({
+      method: 'GET',
+      url: `https://api.spotify.com/v1/albums/${albumId}/tracks?`
+    }).then((resTracks) => {
+        //console.log(resTracks.data);
 
         this.setState({
 
@@ -55,14 +62,26 @@ constructor() {
           preview4: response.data.tracks[3].preview_url,
           track5: response.data.tracks[4].name,
           preview5: response.data.tracks[4].preview_url,
+          track6: response.data.tracks[5].name,
+          preview6: response.data.tracks[5].preview_url,
+          track7: response.data.tracks[6].name,
+          preview7: response.data.tracks[6].preview_url,
+          track8: response.data.tracks[7].name,
+          preview8: response.data.tracks[7].preview_url,
+          track9: response.data.tracks[8].name,
+          preview9: response.data.tracks[8].preview_url,
+          track10: response.data.tracks[9].name,
+          preview10: response.data.tracks[9].preview_url,
+
 
           //album art
           album1: resAlbum.data.items[0].images[1].url,
           album2: resAlbum.data.items[1].images[1].url,
           album3: resAlbum.data.items[2].images[1].url,
           album4: resAlbum.data.items[3].images[1].url,
-          album4: resAlbum.data.items[4].images[1].url,
+          album5: resAlbum.data.items[4].images[1].url,
         });
+    })
     });
     });
     });
@@ -73,13 +92,13 @@ constructor() {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>in4</h2>
+          <h1>in4</h1>
         </div>
         <Input
           getArtistInfo={this.getArtistInfo}
         />
         <ul className = 'artistinfo'>
-          <li>{this.state.artistName}</li>
+          <li className= 'bg'><h2>{this.state.artistName}</h2></li>
           <li><img src={this.state.image} /></li>
         </ul>
 
@@ -89,6 +108,11 @@ constructor() {
           <li><a href={this.state.preview3}>{this.state.track3}</a></li>
           <li><a href={this.state.preview4}>{this.state.track4}</a></li>
           <li><a href={this.state.preview5}>{this.state.track5}</a></li>
+          <li><a href={this.state.preview6}>{this.state.track6}</a></li>
+          <li><a href={this.state.preview7}>{this.state.track7}</a></li>
+          <li><a href={this.state.preview8}>{this.state.track8}</a></li>
+          <li><a href={this.state.preview9}>{this.state.track9}</a></li>
+          <li><a href={this.state.preview10}>{this.state.track10}</a></li>
         </ul>
 
         <ul className = 'album'>
