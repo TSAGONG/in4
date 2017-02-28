@@ -80,6 +80,21 @@ constructor() {
           album3: resAlbum.data.items[2].images[1].url,
           album4: resAlbum.data.items[3].images[1].url,
           album5: resAlbum.data.items[4].images[1].url,
+
+          album6: resAlbum.data.items[5].images[1].url,
+          album7: resAlbum.data.items[6].images[1].url,
+          album8: resAlbum.data.items[7].images[1].url,
+          album9: resAlbum.data.items[8].images[1].url,
+          album10: resAlbum.data.items[9].images[1].url,
+
+          album11: resAlbum.data.items[10].images[1].url,
+          album12: resAlbum.data.items[11].images[1].url,
+          album13: resAlbum.data.items[12].images[1].url,
+          album14: resAlbum.data.items[13].images[1].url,
+          album15: resAlbum.data.items[14].images[1].url,
+
+
+
         });
     });
     });
@@ -101,6 +116,7 @@ constructor() {
           <li><img className='artistimg' src={this.state.image} /></li>
         </ul>
 
+
         <ul className = 'songPreview1'>
           <li><a href={this.state.preview1}>{this.state.track1}</a></li>
           <li><a href={this.state.preview2}>{this.state.track2}</a></li>
@@ -116,13 +132,32 @@ constructor() {
           <li><a href={this.state.preview10}>{this.state.track10}</a></li>
         </ul>
 
-        <ul className = 'album'>
+
+      <div className = 'albums'>
+        <ul className = 'album1'>
           <li><img src={this.state.album1} /></li>
           <li><img src={this.state.album2} /></li>
           <li><img src={this.state.album3} /></li>
           <li><img src={this.state.album4} /></li>
           <li><img src={this.state.album5} /></li>
         </ul>
+
+        <ul className = 'album2'>
+          <li><img src={this.state.album6} /></li>
+          <li><img src={this.state.album7} /></li>
+          <li><img src={this.state.album8} /></li>
+          <li><img src={this.state.album9} /></li>
+          <li><img src={this.state.album10} /></li>
+        </ul>
+
+        <ul className = 'album3'>
+          <li><img src={this.state.album11} /></li>
+          <li><img src={this.state.album12} /></li>
+          <li><img src={this.state.album13} /></li>
+          <li><img src={this.state.album14} /></li>
+          <li><img src={this.state.album15} /></li>
+        </ul>
+      </div>
 
       </div>
     );

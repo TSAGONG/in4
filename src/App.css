@@ -10,7 +10,8 @@ h1{
 
 #input{
   display: flex;
-  justify-content: flex-end;
+  display: inline;
+  margin-left: 3rem;
 }
 
 .search{
@@ -30,9 +31,9 @@ input[type=text] {
 
 button{
   margin-right: 4%;
-  margin-top: 5%;
+  margin-top:5%;
   width: 90px;
-  height: 46px;
+  height: 34px;
   border-color: green;
   background-color: green;
   color: lightgrey;
@@ -74,9 +75,11 @@ h2{
   width: 300px;
   height: 300px;
   border-color: #333536;
-  border-radius: 1px solid ##333536;
+  /*border-radius: 1px solid ##333536;*/
   margin-top: -1%;
   margin-left: -70%;
+  background: url('../public/spotify.jpg');
+  background-size: 100%;
 }
 
 .songPreview1{
@@ -96,5 +99,17 @@ h2{
   margin-left: 60%
 }
 
+.albums{
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
 
+ul li a{
+  color: lightgreen;
+}
+
+* {
+  border-style: hidden;
+}
 
