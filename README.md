@@ -1,3 +1,40 @@
+#in4
+
+![home](./public/home.jpg)
+
+
+###About:
+in4 is a simple web application that retrieves data from the [Spotify API](https://developer.spotify.com/) and renders artists name and tracks. Not only can the user view image and songs of the artist, but they can also listen to a 30 second preview of the current top 10 tracks of the artist in real time. 
+
+
+###Axios Call to Spotify API:
+
+``` 
+  getArtistInfo(artist) {
+
+    axios({
+      method: 'GET',
+      url: `https://api.spotify.com/v1/search?q=${artist}&type=artist`,
+    }).then((res) => {
+
+      const id = res.data.artists.items[0].id;
+
+    axios({
+      method: 'GET',
+      url: `https://api.spotify.com/v1/artists/${id}/top-tracks?country=US`,
+    }).then((response) => {
+        //console.log(response.data);
+    });
+    });
+  }
+```
+###Technologies:
+- React
+- Spotify API
+- Axios
+- CSS3: Flexbox
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
